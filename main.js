@@ -1,10 +1,45 @@
 // Defining text characters for the empty and full hearts for you to use later.
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
+const hidden = document.getElementById('modal')
+hidden.hidden = true
 
 // Your JavaScript code goes here!
 
+document.addEventListener('DOMContentLoaded', () => {
+  
+  
+  likeButton()
+  fetch1()
 
+  
+  
+})
+
+const fetch1 = () => {
+  fetch("http://mimicServer.example.com")
+    .then(function() {
+        console.log("ok");
+    }).catch(function() {
+        hidden.hidden = false;
+        setTimeout(function(){ hidden.hidden = true; }, 5000);
+    });
+}
+
+
+
+
+const likeButton = () => {
+  const like = document.querySelectorAll('.like')
+  like.forEach( l => {
+      l.addEventListener('click', () => {
+        fetch1()
+      })
+  })
+    
+ 
+}
+ 
 
 
 //------------------------------------------------------------------------------
